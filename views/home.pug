@@ -1,0 +1,65 @@
+extends base.pug
+
+
+block scripts
+    //-  script(src='../static/index.js')    
+block style 
+     style
+          include ../static/style.css
+block content 
+        nav#navbar 
+            div.logo
+                img(src="../static/login-logo.png", alt="Login-Page")
+            ul 
+                li #[a(href="/") Home]
+                li #[a(href="/") About]
+                li #[a(href="/") Credential]
+                li #[a(href="/") Contact Us]
+                li #[a(href="/") Blog]
+            div.search 
+                input(type="text" placeholder="Search Meals...")
+
+        section#logo-page
+            h1 India's Cheapest Canteen
+            div.wrapper
+                div.title-text
+                    div(class=['title', 'login'])
+                        | Login Form
+                    div(class=['title', 'signup'])
+                        | SignUp Form
+                div.form-container
+                    div.slide-controls
+                        input(type="radio" name="slide" id="login" checked)
+                        input(type="radio" name="slide" id="signup")
+                        label(for="login" class="slide login")
+                            | Login 
+                        label(for="signup" class="slide signup")
+                            | SignUp
+                        div.slider-tab
+                    div.form-inner
+                        form(action="#" method="post" class="login") 
+                            div.field
+                                input(type="text" name="email" placeholder="Email Address" required)
+                            div.field
+                                input(type="password" name="pwd" placeholder="Password" required)
+                            div.pass-link
+                                a(href="#") 
+                                    | Forgot password 
+                                div(class=['field', 'btn'])
+                                    div.btn-layer
+                                    input(type="submit" value="Login")
+                                div.signup-link 
+                                    | Not a member ? 
+                                    a(href="#") SignUp Now
+                        form(action="sign" method="post" class="signup") 
+                            div.field
+                                input(type="text" name="email" placeholder="Email Address" required)
+                            div.field
+                                input(type="password" name="pwd" placeholder="Password" required)
+                            div.field
+                                input(type="password" name="pwd" placeholder="Confirm Password" required)
+                            div(class=['field', 'btn'])
+                                div.btn-layer
+                                input(type="submit" value="SignUp")
+        script
+            include ../static/index.js    
